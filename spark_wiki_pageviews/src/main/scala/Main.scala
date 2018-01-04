@@ -14,13 +14,15 @@ object Main {
       demoFilePath,
       spark
     )
+    import spark.implicits._
 
+    println("========================== \n")
+    println("========================== \n")
+    println("========================== \n")
     println("Before saving as a Parquet: \n")
     println("number of requests: \n")
     println(wikiPageViewsDF.count())
     wikiPageViewsDF.printSchema()
-
-    import spark.implicits._
 
     wikiPageViewsDF.show(20, false)
 
@@ -39,8 +41,18 @@ object Main {
 
     // save as a parquet
     val parguetPath = ConfigFactory.load().getString("spark.local.parquetOutPutPath.value")
-    Parquet_helper.saveDataFrameAsParquet(wikiPageViewsDF, parguetPath)
+    Parquet_helper.saveDataFrameAsParquet(wikiPageViewsDF, parguetPath, spark)
+    val pageViewsParquetDF = Parquet_helper.readParquetAsDataFrame(parguetPath, spark)
 
+    println("========================== \n")
+    println("========================== \n")
+    println("========================== \n")
+    println("After saving as a Parquet: \n")
+    println("number of requests: \n")
+    println(pageViewsParquetDF.count())
+    pageViewsParquetDF.printSchema()
+
+    pageViewsParquetDF.show(20, false)
 
     spark.close()
   }
