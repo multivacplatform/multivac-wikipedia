@@ -23,6 +23,7 @@ object Cleaning_Data {
       .withColumn("month", Extract_Date_UDF.get_month_file_name(input_file_name)) //extract month from filename
       .withColumn("day", Extract_Date_UDF.get_day_file_name(input_file_name)) //extract day from filename
       .withColumn("hour", Extract_Date_UDF.get_hour_file_name(input_file_name)) //extract hour from filename
+      .withColumn("timestamp", Extract_Date_UDF.get_timestamp_file_name(input_file_name)) //extract timestamp from filename
 
     val wikiPageViewsDF = rawDF.select(
       rawDF("_c0").cast(StringType).as("project"),
@@ -32,7 +33,8 @@ object Cleaning_Data {
       rawDF("year").cast(IntegerType),
       rawDF("month").cast(IntegerType),
       rawDF("day").cast(IntegerType),
-      rawDF("hour").cast(IntegerType)
+      rawDF("hour").cast(IntegerType),
+      rawDF("timestamp").cast(TimestampType)
     )
 
     wikiPageViewsDF
