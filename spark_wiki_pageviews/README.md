@@ -11,7 +11,7 @@ NOTE: Leave the file(s) as is! Meaning, do not unzip them :)
 ```
 wget https://dumps.wikimedia.org/other/pageviews/2018/2018-01/pageviews-2018{01..03}{01..31}-{00..23}0000.gz
 ```
-This will give you `72 files` that require more than `10.395 GB` of storage.
+This will give you `72 files` which require more than `10 GB` of storage.
 
 
 **Number of rows: 444,207,853**
