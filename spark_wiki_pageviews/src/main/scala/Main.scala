@@ -16,6 +16,8 @@ object Main {
     println("number of requests: \n")
     println(wikiPageViewsDF.count())
 
+    wikiPageViewsDF.show(20, false)
+
     import spark.implicits._
     wikiPageViewsDF.
       select($"project", $"requests").
