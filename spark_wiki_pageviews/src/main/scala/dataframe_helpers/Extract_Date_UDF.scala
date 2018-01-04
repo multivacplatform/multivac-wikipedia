@@ -30,11 +30,11 @@ object Extract_Date_UDF {
     extractDateFromFileName(fullPath, "hour")
   }
   def get_timestamp_file_name = udf { fullPath: String =>
-    val year = extractDateFromFileName(fullPath, "year")
-    val month = extractDateFromFileName(fullPath, "month")
-    val day = extractDateFromFileName(fullPath, "day")
-    val hour = extractDateFromFileName(fullPath, "hour")
-    val date = year + "-" + month + "-" + day + "T" + hour + ":00:00"
-    date
+    val viewYear = extractDateFromFileName(fullPath, "year")
+    val viewmonth = extractDateFromFileName(fullPath, "month")
+    val viewday = extractDateFromFileName(fullPath, "day")
+    val viewhour = extractDateFromFileName(fullPath, "hour")
+    val viewDate = viewYear + "-" + viewmonth + "-" + viewday + "T" + viewhour + ":00:00.000+0000"
+    viewDate
   }
 }
