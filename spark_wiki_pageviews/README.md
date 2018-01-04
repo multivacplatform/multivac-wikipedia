@@ -1,17 +1,23 @@
 ## Data
-### Wikipedia Page Views
-Please download one or more files and place them inside `data/pageviews`
+Please download one or more files from this address and place them inside `data/pageviews`
 https://dumps.wikimedia.org/other/pageviews/
 
 NOTE: Leave the file(s) as is! Meaning, do not unzip them :)
 
-#### Top projects: first day of January 2018
+## Showcase
+### Top projects on Wikipeida 
 
-Example: https://dumps.wikimedia.org/other/pageviews/2018/2018-01/
+#### How to download the first 3 days of January 2018 
+```
+wget https://dumps.wikimedia.org/other/pageviews/2018/2018-01/pageviews-2018{01..03}{01..31}-{00..23}0000.gz
+```
+This will give you `72 files` that needs about `10.395 GB` of storage.
 
-Number of rows: **444,207,853**
 
-Sum of requests: **1,585,374,370**
+**Number of rows: 444,207,853**
+
+**Sum of requests: 1,585,374,370**
+
 ```
 +---------+-------------+
 |project  |sum(requests)|
