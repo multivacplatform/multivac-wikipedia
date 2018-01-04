@@ -13,7 +13,15 @@ object Main {
       spark
     )
 
-    wikiPageViewsDF.count()
-    wikiPageViewsDF.show(false)
+    println("number of requests: \n")
+    println(wikiPageViewsDF.count())
+
+    import spark.implicits._
+    wikiPageViewsDF.
+      select($"project", $"requests").
+      groupBy($"project").
+      sum().
+      orderBy($"sum(requests)".desc).
+      show(30, false)
   }
 }
