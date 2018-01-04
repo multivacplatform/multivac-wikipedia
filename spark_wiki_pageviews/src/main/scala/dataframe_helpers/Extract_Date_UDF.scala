@@ -3,6 +3,7 @@ import org.apache.spark.sql.functions.udf
 
 object Extract_Date_UDF {
 
+  // ex filename: pageviews-20180101-000000 - (not useful-year,month,day-hour)
   def extractDateFromFileName(fullPath: String, dateUnit: String):String = {
     val str = fullPath.split("/").last
     dateUnit match {
