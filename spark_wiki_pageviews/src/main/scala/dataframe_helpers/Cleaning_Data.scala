@@ -11,7 +11,7 @@ object Cleaning_Data {
                   spark: SparkSession
                 ): Unit ={
 
-    println("file path: ", filePath)
+    println(s"file path: $filePath")
 
     val rawDF = spark.read
       .option("header", "false")
