@@ -9,8 +9,9 @@ NOTE: Leave the file(s) as is! Meaning, do not unzip them :)
 
 Example: https://dumps.wikimedia.org/other/pageviews/2018/2018-01/
 
-Number of rows: 444,207,853
-Sum of requests: 1,585,374,370
+Number of rows: **444,207,853**
+
+Sum of requests: **1,585,374,370**
 ```
 +---------+-------------+
 |project  |sum(requests)|
