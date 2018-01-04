@@ -1,5 +1,6 @@
 import com.typesafe.config.ConfigFactory
-import dataframe_helpers.{Cleaning_Data, Write_Output}
+import dataframe_helpers.{Cleaning_Data, Parquet_helper}
+
 import spark_helpers.SessionBuilder
 import org.apache.spark.sql.functions._
 
@@ -36,7 +37,10 @@ object Main {
       orderBy($"sum(requests)".desc).
       show(30, false)
 
-    Write_Output.saveDataFrameAsParquet(wikiPageViewsDF)
+    // save as a parquet
+    val parguetPath = ConfigFactory.load().getString("spark.local.parquetOutPutPath.value")
+    Parquet_helper.saveDataFrameAsParquet(wikiPageViewsDF, parguetPath)
+
 
     spark.close()
   }
