@@ -6,14 +6,14 @@ object Main {
   def main(args: Array[String]) {
     val env = args(0)
     val spark = SessionBuilder.buildSession(env)
+    val demoFilePath = ConfigFactory.load().getString("spark.local.pageviewsPath.value")
 
-
-
-    var demoFilePath = ConfigFactory.load().getString("spark.local.pageviewsPath.value")
-
-    Cleaning_Data.create_dataframe(
+    val wikiPageViewsDF = Cleaning_Data.create_dataframe(
       demoFilePath,
       spark
     )
+
+    wikiPageViewsDF.count()
+    wikiPageViewsDF.show(false)
   }
 }
