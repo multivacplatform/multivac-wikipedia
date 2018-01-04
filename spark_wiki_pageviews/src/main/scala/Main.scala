@@ -1,6 +1,7 @@
 import com.typesafe.config.ConfigFactory
-import dataframe_helpers.Cleaning_Data
+import dataframe_helpers.{Cleaning_Data, Write_Output}
 import spark_helpers.SessionBuilder
+import org.apache.spark.sql.functions._
 
 object Main {
   def main(args: Array[String]) {
@@ -13,17 +14,30 @@ object Main {
       spark
     )
 
+    println("Before saving as a Parquet: \n")
     println("number of requests: \n")
     println(wikiPageViewsDF.count())
+    wikiPageViewsDF.printSchema()
+
+    import spark.implicits._
 
     wikiPageViewsDF.show(20, false)
 
-    import spark.implicits._
+    wikiPageViewsDF.
+      select(dayofmonth($"timestamp").as("day")).
+      groupBy("day").
+      count().
+      show(31, false)
+
     wikiPageViewsDF.
       select($"project", $"requests").
       groupBy($"project").
       sum().
       orderBy($"sum(requests)".desc).
       show(30, false)
+
+    Write_Output.saveDataFrameAsParquet(wikiPageViewsDF)
+
+    spark.close()
   }
 }
