@@ -58,3 +58,52 @@ only showing top 30 rows
 ```
 
 ![Number of Reuqests to Wikipedia Projects per Hour: First 3 days of January 2018](https://github.com/multivacplatform/multivac-wikipedia/blob/master/spark_wiki_pageviews/data/images/wiki-pageviews-january2018.png)
+
+#### Bigger demo: December 2017
+```
+wget https://dumps.wikimedia.org/other/pageviews/2017/2017-12/pageviews-201712{01..31}-{00..23}0000.gz
+```
+This will give you `744 files` which require more than `105 GB` of storage.
+
+
+**Number of rows: 4,529,669,792**
+
+**Sum of requests: 15,278,050,138**
+
+```
++---------+-------------+
+|project  |sum(requests)|
++---------+-------------+
+|en.m     |3784911811   |
+|en       |3632828923   |
+|ja.m     |578906226    |
+|ru       |532707570    |
+|es.m     |507966307    |
+|de.m     |464186949    |
+|de       |463264619    |
+|ja       |379715338    |
+|ru.m     |369216509    |
+|fr.m     |361069999    |
+|it.m     |328056166    |
+|fr       |318697185    |
+|es       |314862963    |
+|zh       |206919597    |
+|pt.m     |172852499    |
+|it       |161235234    |
+|zh.m     |149878515    |
+|ar.m     |127827169    |
+|pl       |125353954    |
+|pl.m     |113954004    |
+|pt       |108576418    |
+|commons.m|105668930    |
+|id.m     |89284575     |
+|fa.m     |88369910     |
+|nl.m     |77441421     |
+|nl       |67609149     |
+|sv.m     |57038991     |
+|en.zero  |52135201     |
+|www.wd   |48210254     |
+|ar       |42496761     |
++---------+-------------+
+only showing top 30 rows
+```
