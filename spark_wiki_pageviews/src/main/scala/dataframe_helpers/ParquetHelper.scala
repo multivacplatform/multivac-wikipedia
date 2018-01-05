@@ -1,7 +1,7 @@
 package dataframe_helpers
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
-object Parquet_helper {
+object ParquetHelper {
   def saveDataFrameAsParquet(
                               wikiDF: DataFrame,
                               demoFilePath: String,
