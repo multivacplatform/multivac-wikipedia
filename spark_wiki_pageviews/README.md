@@ -9,7 +9,7 @@ NOTE: Leave the file(s) as is! Meaning, do not unzip them :)
 
 #### How to download the first 3 days of January 2018 
 ```
-wget https://dumps.wikimedia.org/other/pageviews/2018/2018-01/pageviews-2018{01..03}{01..31}-{00..23}0000.gz
+wget https://dumps.wikimedia.org/other/pageviews/2018/2018-01/pageviews-201801{01..3}-{00..23}0000.gz
 ```
 This will give you `72 files` which require more than `10 GB` of storage.
 
