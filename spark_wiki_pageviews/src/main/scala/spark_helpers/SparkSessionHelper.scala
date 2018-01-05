@@ -3,7 +3,7 @@ package spark_helpers
 import com.typesafe.config.ConfigFactory
 import org.apache.spark.sql.SparkSession
 
-object SessionBuilder {
+object SparkSessionHelper {
   def buildSession(env: String): SparkSession = {
 
     var sparkMaster = ConfigFactory.load().getString("spark.local.master.value")
@@ -19,5 +19,9 @@ object SessionBuilder {
     spark.sparkContext.setLogLevel("WARN")
 
     spark
+  }
+
+  def getSparkSession(): SparkSession ={
+    SparkSession.builder().getOrCreate()
   }
 }
