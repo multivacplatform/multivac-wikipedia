@@ -63,7 +63,7 @@ only showing top 30 rows
 ```
 wget https://dumps.wikimedia.org/other/pageviews/2017/2017-12/pageviews-201712{01..31}-{00..23}0000.gz
 ```
-This will give you `744 files` which require more than `105 GB` of storage.
+This will give you `744 files` which require more than `36 GB` of storage.
 
 
 **Number of rows: 4,529,669,792**
