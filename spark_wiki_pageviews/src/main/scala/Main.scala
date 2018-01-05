@@ -48,6 +48,9 @@ object Main {
     println("========================== \n")
     println("========================== \n")
     println("After saving as a Parquet: \n")
+
+//    pageViewsParquetDF.rdd.partitions.foreach(print)
+
     println("number of requests: \n")
     println(pageViewsParquetDF.count())
     pageViewsParquetDF.printSchema()
