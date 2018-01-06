@@ -39,9 +39,13 @@ object Main {
       orderBy($"sum(requests)".desc).
       show(30, false)
 
-    // save as a parquet
+    // point to output of parquets
     val parguetPath = ConfigFactory.load().getString("spark.local.parquetOutPutPath.value")
+
+    // save as a parquet
     ParquetHelper.saveDataFrameAsParquet(wikiPageViewsDF, parguetPath, spark)
+
+    // read saved parquets to test
     val pageViewsParquetDF = ParquetHelper.readParquetAsDataFrame(parguetPath, spark)
 
     println("========================== \n")
