@@ -26,18 +26,18 @@ object Main {
 
     wikiPageViewsDF.show(20, false)
 
-    wikiPageViewsDF.
-      select(dayofmonth($"timestamp").as("day")).
-      groupBy("day").
-      count().
-      show(31, false)
+    wikiPageViewsDF
+      .select(dayofmonth($"timestamp").as("day"))
+      .groupBy("day")
+      .count()
+      .show(31, false)
 
-    wikiPageViewsDF.
-      select($"project", $"requests").
-      groupBy($"project").
-      sum().
-      orderBy($"sum(requests)".desc).
-      show(30, false)
+    wikiPageViewsDF
+      .select($"project", $"requests")
+      .groupBy($"project")
+      .sum()
+      .orderBy($"sum(requests)".desc)
+      .show(30, false)
 
     // point to output of parquets
     val parguetPath = ConfigFactory.load().getString("spark.local.parquetOutPutPath.value")
@@ -52,9 +52,7 @@ object Main {
     println("========================== \n")
     println("========================== \n")
     println("After saving as a Parquet: \n")
-
-//    pageViewsParquetDF.rdd.partitions.foreach(print)
-
+    // pageViewsParquetDF.rdd.partitions.foreach(print)
     println("number of requests: \n")
     println(pageViewsParquetDF.count())
     pageViewsParquetDF.printSchema()
