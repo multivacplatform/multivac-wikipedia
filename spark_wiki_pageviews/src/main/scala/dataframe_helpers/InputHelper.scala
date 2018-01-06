@@ -18,6 +18,7 @@ object InputHelper {
       .option("header", "false")
       .option("delimiter", " ")
       .option("inferSchema", true)
+      .option("mode", "DROPMALFORMED")
       .csv(filePath)
       .withColumn("year", UDFHelper.get_year_file_name(input_file_name)) //extract year from filename
       .withColumn("month", UDFHelper.get_month_file_name(input_file_name)) //extract month from filename
