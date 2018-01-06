@@ -7,15 +7,13 @@ object ParquetHelper {
                               demoFilePath: String,
                               spark: SparkSession
                             ): Unit ={
-    import spark.implicits._
-
     wikiDF
-      .repartition($"year", $"month", $"day")
       .write
+      .partitionBy("year", "month", "day")
       .mode(SaveMode.Overwrite)
       .option("compression","snappy")
-      .partitionBy("year", "month", "day")
-      .parquet(demoFilePath)
+      .parquet(s"$demoFilePath")
+
   }
 
   def readParquetAsDataFrame(
