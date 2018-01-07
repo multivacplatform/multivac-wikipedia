@@ -26,13 +26,13 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.apache.spark" %%"spark-core" % "2.2.0",
-  "org.apache.spark" %% "spark-sql" % "2.2.0",
-  "org.apache.spark" %% "spark-streaming" % "2.2.0",
-  "org.apache.spark" %% "spark-mllib" % "2.2.0",
-  "org.apache.spark" %% "spark-hive" % "2.2.0",
-  "org.apache.spark" %% "spark-graphx" % "2.2.0",
-  "org.apache.spark" %% "spark-yarn" % "2.2.0",
+  "org.apache.spark" %%"spark-core" % "2.2.0" % "provided",
+  "org.apache.spark" %% "spark-sql" % "2.2.0" % "provided",
+  "org.apache.spark" %% "spark-streaming" % "2.2.0" % "provided",
+  "org.apache.spark" %% "spark-mllib" % "2.2.0" % "provided",
+  "org.apache.spark" %% "spark-hive" % "2.2.0" % "provided",
+  "org.apache.spark" %% "spark-graphx" % "2.2.0" % "provided",
+  "org.apache.spark" %% "spark-yarn" % "2.2.0" % "provided",
   "com.typesafe" % "config" % "1.3.2",
   "com.johnsnowlabs.nlp" %% "spark-nlp" % "1.2.4",
   "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0",
@@ -40,3 +40,8 @@ libraryDependencies ++= Seq(
   "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models-french",
   "com.optimaize.languagedetector" % "language-detector" % "0.6"
 )
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
