@@ -33,7 +33,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-hive" % "2.2.0",
   "org.apache.spark" %% "spark-graphx" % "2.2.0",
   "org.apache.spark" %% "spark-yarn" % "2.2.0",
-  "com.typesafe" % "config" % "1.3.1",
+  "com.typesafe" % "config" % "1.3.2",
   "com.johnsnowlabs.nlp" %% "spark-nlp" % "1.2.4",
   "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0",
   "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models",
