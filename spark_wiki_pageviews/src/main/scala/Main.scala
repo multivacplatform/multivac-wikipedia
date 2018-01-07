@@ -1,7 +1,7 @@
-import com.typesafe.config.ConfigFactory
 import dataframe_helpers.{InputHelper, ParquetHelper}
-
 import spark_helpers.SparkSessionHelper
+
+import com.typesafe.config.ConfigFactory
 import org.apache.spark.sql.functions._
 
 object Main {
