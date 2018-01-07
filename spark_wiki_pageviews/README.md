@@ -12,7 +12,7 @@ NOTE: Leave the file(s) as is! Meaning, do not unzip them :)
 wget https://dumps.wikimedia.org/other/pageviews/2018/2018-01/pageviews-201801{01..3}-{00..23}0000.gz
 ```
 This will give you `72 files` which require more than `10 GB` of storage.
-
+NOTE: The double digit range only works in new version of bash.
 
 **Number of rows: 444,207,853**
 
@@ -64,6 +64,7 @@ only showing top 30 rows
 wget https://dumps.wikimedia.org/other/pageviews/2017/2017-12/pageviews-201712{01..31}-{00..23}0000.gz
 ```
 This will give you `744 files` which require more than `36 GB` of storage.
+NOTE: The double digit range only works in new version of bash.
 
 
 **Number of rows: 4,529,669,792**
