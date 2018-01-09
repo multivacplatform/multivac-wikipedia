@@ -6,9 +6,8 @@ import org.apache.spark.sql.functions._
 
 object Main {
   def main(args: Array[String]) {
-    val env = args(0)
-    val spark = SparkSessionHelper.buildSession(env)
-    val demoFilePath = ConfigFactory.load().getString("spark.local.inputPath.value")
+    val spark = SparkSessionHelper.buildSession()
+    val demoFilePath = ConfigFactory.load().getString("spark.conf.inputPath.value")
 
     val wikiPageViewsDF = InputHelper.create_dataframe(
       demoFilePath,
@@ -40,7 +39,7 @@ object Main {
       .show(30, false)
 
     // point to output of parquets
-    val parguetPath = ConfigFactory.load().getString("spark.local.outputPath.value")
+    val parguetPath = ConfigFactory.load().getString("spark.conf.outputPath.value")
 
     // save as a parquet
     ParquetHelper.saveDataFrameAsParquet(wikiPageViewsDF, parguetPath, spark)
