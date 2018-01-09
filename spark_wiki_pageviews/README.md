@@ -108,3 +108,16 @@ NOTE: The double digit range only works in new version of bash.
 +---------+-------------+
 only showing top 30 rows
 ```
+## How To
+
+### Run Spark Job
+```$xslt
+sudo chmod +x start_spark.sh
+```
+```$xslt
+./start_spark.sh \
+-m local[*] \
+-i data/pageviews/*.gz \
+-o /output/parquet \
+-j target/scala-2.11/spark_wiki_pageviews-assembly-0.1.jar
+```
