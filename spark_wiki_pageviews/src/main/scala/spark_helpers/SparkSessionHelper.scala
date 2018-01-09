@@ -4,11 +4,11 @@ import com.typesafe.config.ConfigFactory
 import org.apache.spark.sql.SparkSession
 
 object SparkSessionHelper {
-  def buildSession(env: String): SparkSession = {
+  def buildSession(): SparkSession = {
 
-    var sparkMaster = ConfigFactory.load().getString("spark.local.master.value")
-    if(env == "prod")
-      sparkMaster = ConfigFactory.load().getString("spark.prod.master.value")
+    val sparkMaster = ConfigFactory.load().getString("spark.conf.master.value")
+
+    println("Spark Master: ", sparkMaster)
 
     val spark: SparkSession = SparkSession.builder
       .appName("spark-wiki-pageviews")
