@@ -30,6 +30,8 @@ spark-submit \
 --class "Main" \
 --master "$MASTER" \
 --deploy-mode "$MODE" \
+--executor-cores 5 \
+--executor-memory 5g \
 --conf spark.conf.inputPath.value="$INPUTPATH" \
 --conf spark.conf.outputPath.value="$OUTPUTPATH" \
 $JAR
