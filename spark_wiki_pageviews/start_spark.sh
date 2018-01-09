@@ -14,6 +14,13 @@ do
  esac
 done
 
+if [[ "$MASTER" == "yarn" ]]; then
+MODE="cluster"
+elif [[ "$MASTER" == "local"* ]]; then
+MODE="client"
+fi
+
+
 echo "$MASTER"
 echo "$INPUTPATH"
 echo "$OUTPUTPATH"
@@ -22,6 +29,7 @@ echo "$JAR"
 spark-submit \
 --class "Main" \
 --master "$MASTER" \
+--deploy-mode "$MODE"
 --conf spark.conf.inputPath.value="$INPUTPATH" \
 --conf spark.conf.outputPath.value="$OUTPUTPATH" \
 $JAR
