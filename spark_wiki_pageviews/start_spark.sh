@@ -25,13 +25,16 @@ echo "$MASTER"
 echo "$INPUTPATH"
 echo "$OUTPUTPATH"
 echo "$JAR"
+echo "$MODE"
 
 spark-submit \
 --class "Main" \
 --master "$MASTER" \
 --deploy-mode "$MODE" \
---executor-cores 5 \
---executor-memory 5g \
+--driver-memory 4g \
+--executor-cores 2 \
+--executor-memory 2g \
+--num-executors 10 \
 --conf spark.conf.inputPath.value="$INPUTPATH" \
 --conf spark.conf.outputPath.value="$OUTPUTPATH" \
 $JAR
