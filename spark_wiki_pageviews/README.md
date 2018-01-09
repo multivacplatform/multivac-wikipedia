@@ -118,6 +118,6 @@ sudo chmod +x start_spark.sh
 ./start_spark.sh \
 -m local[*] \
 -i data/pageviews/*.gz \
--o /output/parquet \
+-o data/output/parquet \
 -j target/scala-2.11/spark_wiki_pageviews-assembly-0.1.jar
 ```
