@@ -21,7 +21,7 @@ echo "$JAR"
 
 spark-submit \
 --class "Main" \
---master $MASTER \
+--master "$MASTER" \
 --conf spark.conf.inputPath.value="$INPUTPATH" \
 --conf spark.conf.outputPath.value="$OUTPUTPATH" \
 $JAR
