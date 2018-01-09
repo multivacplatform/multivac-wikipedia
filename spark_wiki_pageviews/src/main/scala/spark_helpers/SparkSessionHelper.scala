@@ -13,6 +13,7 @@ object SparkSessionHelper {
     val spark: SparkSession = SparkSession.builder
       .appName("spark-wiki-pageviews")
       .master(sparkMaster)
+      .enableHiveSupport()
       .getOrCreate
 
     spark.sparkContext.setLogLevel("WARN")
