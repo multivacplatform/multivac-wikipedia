@@ -14,7 +14,7 @@ do
  esac
 done
 
-if [[ "$MASTER" == "yarn" ]]; then
+if [[ "$MASTER" == "yarn"* ]]; then
 MODE="cluster"
 elif [[ "$MASTER" == "local"* ]]; then
 MODE="client"
