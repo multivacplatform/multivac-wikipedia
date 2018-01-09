@@ -35,6 +35,7 @@ spark-submit \
 --executor-cores 2 \
 --executor-memory 2g \
 --num-executors 10 \
+--conf spark.dynamicAllocation.enabled=true \
 --conf spark.conf.inputPath.value="$INPUTPATH" \
 --conf spark.conf.outputPath.value="$OUTPUTPATH" \
 $JAR
