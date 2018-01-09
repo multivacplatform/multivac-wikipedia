@@ -13,7 +13,6 @@ object SparkSessionHelper {
     val spark: SparkSession = SparkSession.builder
       .appName("spark-wiki-pageviews")
       .master(sparkMaster)
-      .config("spark.local.dir", "/tmp/spark-temp")
       .getOrCreate
 
     spark.sparkContext.setLogLevel("WARN")
