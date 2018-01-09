@@ -111,9 +111,24 @@ only showing top 30 rows
 ## How To
 
 ### Run Spark Job
+#### Create a fat JAR
+```$xslt
+sbt compile && sbt assembly -mem 2048
+```
+This will create a JAR in `target/scala-2.11/`
+
+Now let's make our script executable:
 ```$xslt
 sudo chmod +x start_spark.sh
 ```
+And this is how you can assign parameters to Spark:
+```$xslt
+-m Spark master : local[*] Or yarn-cluster
+-i Path to input directory containing *.gz files
+-o Path to output directory to save parquets
+-j Path to fat JAR you build by sbt assembly
+```
+Example for local Spark:
 ```$xslt
 ./start_spark.sh \
 -m local[*] \
