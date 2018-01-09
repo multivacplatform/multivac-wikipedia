@@ -123,7 +123,7 @@ sudo chmod +x start_spark.sh
 ```
 And this is how you can assign parameters to Spark:
 ```$xslt
--m Spark master : local[*] Or yarn-cluster
+-m Spark master : local[*] Or yarn
 -i Path to input directory containing *.gz files
 -o Path to output directory to save parquets
 -j Path to fat JAR you build by sbt assembly
