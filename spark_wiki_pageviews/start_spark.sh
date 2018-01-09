@@ -29,7 +29,7 @@ echo "$JAR"
 spark-submit \
 --class "Main" \
 --master "$MASTER" \
---deploy-mode "$MODE"
+--deploy-mode "$MODE" \
 --conf spark.conf.inputPath.value="$INPUTPATH" \
 --conf spark.conf.outputPath.value="$OUTPUTPATH" \
 $JAR
