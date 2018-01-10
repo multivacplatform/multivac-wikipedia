@@ -6,4 +6,4 @@ echo "fetch the latest changes from GitHub"
 git -C ../ pull
 
 echo "compile and making a fat JAR!"
-sbt compile && sbt assembly -mem 2048
+sbt clean && sbt compile && sbt assembly -mem 2048
