@@ -3,8 +3,10 @@
 now="$(date +'%d-%m-%Y')"
 echo "today is $now"
 
-echo "fetch the latest changes from GitHub"
+echo "clean already created JARs"
+rm target/scala-2.11/*.jar
 
+echo "fetch the latest changes from GitHub"
 git -C ../ pull
 
 echo "compile and making a fat JAR!"
