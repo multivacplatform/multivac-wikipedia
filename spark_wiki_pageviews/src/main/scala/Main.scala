@@ -1,7 +1,7 @@
 import dataframe_helpers.{InputHelper, ParquetHelper}
 import spark_helpers.SparkSessionHelper
-
 import com.typesafe.config.ConfigFactory
+import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.functions._
 
 object Main {
@@ -13,7 +13,6 @@ object Main {
       demoFilePath,
       spark
     )
-    import spark.implicits._
 
     println("========================== \n")
     println("========================== \n")
@@ -24,28 +23,33 @@ object Main {
     println("Schema of DataFrame: \n")
     wikiPageViewsDF.printSchema()
 
-    println("Displaying DataFrame: \n")
-    wikiPageViewsDF.show(20, false)
+    println("Displaying 10 rows of DataFrame: \n")
+    wikiPageViewsDF.show(10, false)
 
-    println("How many days are imported: \n")
-    wikiPageViewsDF
-      .select(dayofmonth($"timestamp").as("day"))
-      .groupBy("day")
+    val filteredByDateDF = wikiPageViewsDF
+      .select("year", "month", "day")
+      .groupBy("year", "month", "day")
       .count()
-      .show(31, false)
 
-//    wikiPageViewsDF
-//      .select($"project", $"requests")
-//      .groupBy($"project")
-//      .sum()
-//      .orderBy($"sum(requests)".desc)
-//      .show(30, false)
+    println("Display top 10 imported dates for partitioning: \n")
+    filteredByDateDF.show(10, false)
+
+
+    //    wikiPageViewsDF
+    //      .select($"project", $"requests")
+    //      .groupBy($"project")
+    //      .sum()
+    //      .orderBy($"sum(requests)".desc)
+    //      .show(30, false)
 
     // point to output of parquets
     val parguetPath = ConfigFactory.load().getString("spark.conf.outputPath.value")
 
-    // save as a parquet
-    ParquetHelper.saveDataFrameAsParquet(wikiPageViewsDF, parguetPath, spark)
+    // save as a parquet with dynamic partitions / overwrite into partition
+    filteredByDateDF.collect().map({ x =>
+      println("overwriting partition", x(0), x(1), x(2))
+      writeIntoPartition(x.getInt(0), x.getInt(1), x.getInt(2), wikiPageViewsDF, parguetPath, spark)
+    })
 
     // read saved parquets to test
     val pageViewsParquetDF = ParquetHelper.readParquetAsDataFrame(parguetPath, spark)
@@ -64,4 +68,10 @@ object Main {
 
     spark.close()
   }
+
+  def writeIntoPartition(year: Int, month: Int, day: Int, wikiPageViewsDF: DataFrame, parguetPath:String, spark: SparkSession): Unit ={
+    println(year, month, day)
+    ParquetHelper.saveDataFrameAsParquet(year, month, day, wikiPageViewsDF, parguetPath, spark)
+  }
 }
+
