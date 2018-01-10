@@ -3,6 +3,9 @@
 now="$(date +'%d-%m-%Y')"
 echo "today is $now"
 
+echo "compile and making a fat JAR!"
+sbt assembly -mem 2048
+
 while getopts m:i:o:j: option
 do
  case "${option}"
@@ -19,7 +22,6 @@ MODE="cluster"
 elif [[ "$MASTER" == "local"* ]]; then
 MODE="client"
 fi
-
 
 echo "$MASTER"
 echo "$INPUTPATH"
