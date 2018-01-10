@@ -112,6 +112,7 @@ only showing top 30 rows
 
 ### Run Spark Job
 #### Create a fat JAR
+NOTE: This is included in start_spark.sh - use it if you want to run the jar on your own.
 ```$xslt
 sbt compile && sbt assembly -mem 2048
 ```
