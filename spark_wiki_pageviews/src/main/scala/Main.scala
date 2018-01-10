@@ -19,12 +19,15 @@ object Main {
     println("========================== \n")
     println("========================== \n")
     println("Before saving as a Parquet: \n")
-    println("number of requests: \n")
+    println("Number of rows in DataFrame: \n")
     println(wikiPageViewsDF.count())
+    println("Schema of DataFrame: \n")
     wikiPageViewsDF.printSchema()
 
+    println("Displaying DataFrame: \n")
     wikiPageViewsDF.show(20, false)
 
+    println("How many days are imported: \n")
     wikiPageViewsDF
       .select(dayofmonth($"timestamp").as("day"))
       .groupBy("day")
@@ -52,8 +55,9 @@ object Main {
     println("========================== \n")
     println("After saving as a Parquet: \n")
     // pageViewsParquetDF.rdd.partitions.foreach(print)
-    println("number of requests: \n")
+    println("Number of rows in DataFrame: \n")
     println(pageViewsParquetDF.count())
+    println("Schema of DataFrame: \n")
     pageViewsParquetDF.printSchema()
 
     pageViewsParquetDF.show(20, false)
