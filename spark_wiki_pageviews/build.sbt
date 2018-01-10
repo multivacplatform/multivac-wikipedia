@@ -25,21 +25,24 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("public")
 )
 
-libraryDependencies ++= Seq(
-  "org.apache.spark" %%"spark-core" % "2.2.0" % "provided",
-  "org.apache.spark" %% "spark-sql" % "2.2.0" % "provided",
-  "org.apache.spark" %% "spark-streaming" % "2.2.0" % "provided",
-  "org.apache.spark" %% "spark-mllib" % "2.2.0" % "provided",
-  "org.apache.spark" %% "spark-hive" % "2.2.0" % "provided",
-  "org.apache.spark" %% "spark-graphx" % "2.2.0" % "provided",
-  "org.apache.spark" %% "spark-yarn" % "2.2.0" % "provided",
-  "com.typesafe" % "config" % "1.3.2",
-  "com.johnsnowlabs.nlp" %% "spark-nlp" % "1.2.4",
-  "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0",
-  "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models",
-  "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models-french",
-  "com.optimaize.languagedetector" % "language-detector" % "0.6"
-)
+libraryDependencies ++= {
+  val sparkVer = "2.2.0"
+  Seq(
+    "org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-sql" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-streaming" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-mllib" %sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-hive" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-graphx" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-yarn" % sparkVer % "provided" withSources(),
+    "com.typesafe" % "config" % "1.3.2",
+    "com.johnsnowlabs.nlp" %% "spark-nlp" % "1.2.4",
+    "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0",
+    "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models",
+    "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models-french",
+    "com.optimaize.languagedetector" % "language-detector" % "0.6"
+  )
+}
 
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs @ _*) => MergeStrategy.discard
