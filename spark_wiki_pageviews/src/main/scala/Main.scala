@@ -31,12 +31,12 @@ object Main {
       .count()
       .show(31, false)
 
-    wikiPageViewsDF
-      .select($"project", $"requests")
-      .groupBy($"project")
-      .sum()
-      .orderBy($"sum(requests)".desc)
-      .show(30, false)
+//    wikiPageViewsDF
+//      .select($"project", $"requests")
+//      .groupBy($"project")
+//      .sum()
+//      .orderBy($"sum(requests)".desc)
+//      .show(30, false)
 
     // point to output of parquets
     val parguetPath = ConfigFactory.load().getString("spark.conf.outputPath.value")
