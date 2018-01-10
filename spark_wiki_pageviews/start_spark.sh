@@ -3,15 +3,6 @@
 now="$(date +'%d-%m-%Y')"
 echo "today is $now"
 
-echo "clean already created JARs"
-rm target/scala-2.11/*.jar
-
-echo "fetch the latest changes from GitHub"
-git -C ../ pull
-
-echo "compile and making a fat JAR!"
-sbt compile && sbt assembly -mem 2048
-
 while getopts m:i:o:j: option
 do
  case "${option}"
