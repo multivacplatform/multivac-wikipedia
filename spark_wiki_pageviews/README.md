@@ -137,3 +137,5 @@ Example for local Spark:
 -o data/output/parquet \
 -j target/scala-2.11/*.jar
 ```
+You can chose the number of threads in local mode by changing `*` to `N` when N is the parallel threads you desire.
+ex: ```local[2]```
