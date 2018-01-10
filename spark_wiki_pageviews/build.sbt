@@ -29,10 +29,10 @@ libraryDependencies ++= {
   val sparkVer = "2.2.0"
   Seq(
     "org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources(),
-    "org.apache.spark" %% "spark-sql" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-sql" % sparkVer,
     "org.apache.spark" %% "spark-streaming" % sparkVer % "provided" withSources(),
     "org.apache.spark" %% "spark-mllib" %sparkVer % "provided" withSources(),
-    "org.apache.spark" %% "spark-hive" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-hive" % sparkVer,
     "org.apache.spark" %% "spark-graphx" % sparkVer % "provided" withSources(),
     "org.apache.spark" %% "spark-yarn" % sparkVer % "provided" withSources(),
     "com.typesafe" % "config" % "1.3.2"
@@ -46,11 +46,16 @@ assemblyMergeStrategy in assembly := {
 
 assemblyExcludedJars in assembly := {
   val cp = (fullClasspath in assembly).value
-  cp filter {_.data.getName == "spark-core*"}
-  cp filter {_.data.getName == "spark-sql*"}
-  cp filter {_.data.getName == "spark-streaming*"}
-  cp filter {_.data.getName == "spark-mllib*"}
-  cp filter {_.data.getName == "spark-hive*"}
-  cp filter {_.data.getName == "spark-graphx*"}
-  cp filter {_.data.getName == "spark-yarn*"}
+  cp filter {
+    j => {
+      j.data.getName.startsWith("spark-core") ||
+        j.data.getName.startsWith("spark-sql") ||
+        j.data.getName.startsWith("spark-hive") ||
+        j.data.getName.startsWith("spark-mllib") ||
+        j.data.getName.startsWith("spark-graphx") ||
+        j.data.getName.startsWith("spark-yarn") ||
+        j.data.getName.startsWith("spark-streaming") ||
+        j.data.getName.startsWith("hadoop")
+    }
+  }
 }
