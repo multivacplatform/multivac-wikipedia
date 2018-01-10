@@ -10,7 +10,7 @@ echo "fetch the latest changes from GitHub"
 git -C ../ pull
 
 echo "compile and making a fat JAR!"
-sbt assembly -mem 2048
+sbt compile && sbt assembly -mem 2048
 
 while getopts m:i:o:j: option
 do
@@ -29,11 +29,11 @@ elif [[ "$MASTER" == "local"* ]]; then
 MODE="client"
 fi
 
-echo "$MASTER"
-echo "$INPUTPATH"
-echo "$OUTPUTPATH"
-echo "$JAR"
-echo "$MODE"
+echo "MASTER $MASTER"
+echo "INPUT PATH $INPUTPATH"
+echo "OUTPUT PATH $OUTPUTPATH"
+echo "JAR $JAR"
+echo "MODE $MODE"
 
 spark-submit \
 --class "Main" \
