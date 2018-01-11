@@ -3,6 +3,13 @@
 now="$(date +'%d-%m-%Y')"
 echo "today is $now"
 
+#default value for Spark local mode
+MASTER="local[4]"
+INPUTPATH="data/pageviews/*.gz"
+OUTPUTPATH="data/output/parquet"
+JAR="target/scala-2.11/*.jar"
+MODE="client"
+
 while getopts m:i:o:j: option
 do
  case "${option}"
