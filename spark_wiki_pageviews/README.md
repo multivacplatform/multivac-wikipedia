@@ -1,3 +1,8 @@
+## Intro
+##### There are 3 scripts:
+##### 1. build_lib.sh:
+This will clean your sbt, compile and create a fat JAR
+##### .sh:
 ## Data
 Please download one or more files from this address and place them inside `data/pageviews`
 https://dumps.wikimedia.org/other/pageviews/
@@ -129,8 +134,12 @@ And this is how you can assign parameters to Spark:
 -o Path to output directory to save parquets
 -j Path to fat JAR you build by sbt assembly
 ```
-Example for local Spark:
-```$xslt
+Example for Spark standalone (local):
+```
+./start_spark.sh
+```
+Same as:
+```
 ./start_spark.sh \
 -m local[*] \
 -i data/pageviews/*.gz \
@@ -138,4 +147,14 @@ Example for local Spark:
 -j target/scala-2.11/*.jar
 ```
 You can chose the number of threads in local mode by changing `*` to `N` when N is the parallel threads you desire.
-ex: ```local[2]```
+
+example: ```local[2]```
+
+To run this on YARN cluster (you need to have your files/JAR on HDFS):
+```
+./start_spark.sh \
+-m yarn \
+-i hdfs://PATH-TO-FILES/*.gz \
+-o hdfs://PATH-TO-OUTPUT/ \
+-j hdfs://PATH-TO-JAR
+```
