@@ -1,4 +1,7 @@
 ## Intro
+
+Saving incrementally and dynamically partitioned Wikipedia pageviews as parquets by Apache Spark :)
+
 ##### There are 3 scripts:
 ##### 1. build_lib.sh:
 This will clean your sbt, compile and create a fat JAR
@@ -55,6 +58,13 @@ To run this on YARN cluster (you need to have your files/JAR on HDFS):
 -o hdfs://PATH-TO-OUTPUT/ \
 -j hdfs://PATH-TO-JAR
 ```
+
+**Orders of scripts**
+1. `build_lib.sh`
+2. `download_daily.sh`
+3. `prepare_hdfs.sh` - Optionally you can run this to prepare files on HDFS for Spark job on YARN cluster.
+4. `start_spark.sh`
+
 
 ## Data
 If you don't want to use the script to download daily pageviews or you just want to test, please download one or more files from this address and place them inside `data/pageviews`
