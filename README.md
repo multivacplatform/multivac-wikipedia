@@ -1,11 +1,14 @@
 # multivac-wikipedia
 Wonderful reusable codes, libraries and scripts to process Wikipedia dumps (page content, page views, etc.) by using Apache Spark (SQL, ML, and GraphX).
 
-## spark_wiki_pageviews
+## build_pageviews
 This repo represents:
-* TODO: downloading the latest hour of wikipedia page views (script)
-* cleaning up and putting the data in appropriate columns (Spark DataFrame)
-* save as partitioned parquets (Spark DataFrame)
+* Download hourly pageviews for entire Wikipedia projects (daily)
+* Cleaning up and creating DataFrame
+* Save DataFrame as increamentally and dynamically partitioned parquets
+
+[Read more about this repo](https://github.com/multivacplatform/multivac-wikipedia/tree/master/build_pageviews)
+
 ### Showcase
 #### Wikipedia PageViews in December 2017
 
@@ -51,7 +54,6 @@ This repo represents:
 only showing top 30 rows
 ```
 [Read more](https://github.com/multivacplatform/multivac-wikipedia/tree/master/spark_wiki_pageviews)
-
 
 
 ## Testing Environment
