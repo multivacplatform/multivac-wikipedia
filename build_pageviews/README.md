@@ -125,7 +125,7 @@ only showing top 30 rows
 
 ```
 
-![Number of Reuqests to Wikipedia Projects per Hour: First 3 days of January 2018](https://github.com/multivacplatform/multivac-wikipedia/blob/master/spark_wiki_pageviews/data/images/wiki-pageviews-january2018.png)
+![Number of Reuqests to Wikipedia Projects per Hour: First 3 days of January 2018](https://github.com/multivacplatform/multivac-wikipedia/blob/master/build_pageviews/data/images/wiki-pageviews-january2018.png)
 
 #### Bigger demo: December 2017
 ```
