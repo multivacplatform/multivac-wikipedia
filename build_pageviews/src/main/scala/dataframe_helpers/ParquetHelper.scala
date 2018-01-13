@@ -15,7 +15,6 @@ object ParquetHelper {
     val partitionPath = demoFilePath + "/year=" + year + "/month=" + month + "/day=" + day
     println("daily partiton path ", partitionPath)
     wikiDF
-      .repartition($"hour")
       .filter($"year" === year)
       .filter($"month" === month)
       .filter($"day" === day)
