@@ -27,7 +27,7 @@ object ParquetHelper {
 
     tempDF
       .write
-      .partitionBy("day") // not needed since we filter and overwrite into one partition
+      .partitionBy("hour") // not needed since we filter and overwrite into one partition
       .mode(SaveMode.Overwrite)
       .option("compression","snappy")
       .parquet(s"$partitionPath")
