@@ -1,2 +1,2 @@
-*.gz
-data/output/parquet/*
+data/output/*
+data/pageviews/*
