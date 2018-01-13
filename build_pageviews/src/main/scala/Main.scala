@@ -32,7 +32,7 @@ object Main {
       .count()
 
     println("Display top 10 imported dates for partitioning: \n")
-//    filteredByDateDF.show(10, false)
+    //    filteredByDateDF.show(10, false)
 
 
     //    wikiPageViewsDF
@@ -51,6 +51,7 @@ object Main {
       writeIntoPartition(x.getInt(0), x.getInt(1), x.getInt(2), wikiPageViewsDF, parguetPath, spark)
     })
 
+    /*
     // read saved parquets to test
     val pageViewsParquetDF = ParquetHelper.readParquetAsDataFrame(parguetPath, spark)
 
@@ -63,8 +64,8 @@ object Main {
     println(pageViewsParquetDF.count())
     println("Schema of DataFrame: \n")
     pageViewsParquetDF.printSchema()
-
     pageViewsParquetDF.show(20, false)
+    */
 
     spark.close()
   }
