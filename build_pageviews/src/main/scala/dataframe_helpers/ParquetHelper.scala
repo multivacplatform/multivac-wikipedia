@@ -21,7 +21,8 @@ object ParquetHelper {
       .filter($"day" === day)
 
     tempDF.repartition($"day")
-
+    tempDF.rdd.partitions.foreach(print)
+    
     tempDF
       .write
       //.partitionBy("day") // not needed since we filter and overwrite into one partition
