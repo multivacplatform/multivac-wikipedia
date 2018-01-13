@@ -32,7 +32,7 @@ object Main {
       .count()
 
     println("Display top 10 imported dates for partitioning: \n")
-    filteredByDateDF.show(10, false)
+//    filteredByDateDF.show(10, false)
 
 
     //    wikiPageViewsDF
