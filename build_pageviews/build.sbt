@@ -1,4 +1,4 @@
-name := "spark_wiki_pageviews"
+name := "build_pageviews"
 
 version := "0.1"
 
