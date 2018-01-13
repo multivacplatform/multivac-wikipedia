@@ -14,6 +14,10 @@ object ParquetHelper {
     import spark.implicits._
 
     val partitionPath = demoFilePath + "/year=" + year + "/month=" + month + "/day=" + day
+    // check if the path exist.
+    // if exist, go with manually overwrite the smallest partition: day
+    // if it doesn't exist, use append mode
+
     println("daily partiton path ", partitionPath)
     val tempDF = wikiDF
       .filter($"year" === year)
@@ -21,8 +25,9 @@ object ParquetHelper {
       .filter($"day" === day)
 
     tempDF.repartition($"day")
-    tempDF.rdd.partitions.foreach(print)
-    
+//    tempDF.rdd.partitions.foreach(print)
+    println(tempDF.rdd.partitions.length)
+
     tempDF
       .write
       //.partitionBy("day") // not needed since we filter and overwrite into one partition
