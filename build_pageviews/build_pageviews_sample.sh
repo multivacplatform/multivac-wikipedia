@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 echo "start downloading yesterday's pageviews"
+cd "$(dirname "$0")"
 ./download_daily.sh
 echo "start pulling latest code, cleaning and creating fat JAR"
 ./build_lib.sh
