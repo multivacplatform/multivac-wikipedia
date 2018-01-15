@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/multivacplatform/multivac-wikipedia.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-wikipedia)
+
+#Build PageViews
+Download, clean and process **Wikipedia** hourly-generated pageviews!
+
 ## Intro
 
 Saving incrementally and dynamically partitioned Wikipedia pageviews as parquets by Apache Spark :)
