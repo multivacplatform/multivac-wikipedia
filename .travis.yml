@@ -10,4 +10,4 @@ branches:
     - /^v[0-9]/
 
 script:
-   - sbt ++$TRAVIS_SCALA_VERSION test
+   - cd build_pageviews sbt ++$TRAVIS_SCALA_VERSION test
