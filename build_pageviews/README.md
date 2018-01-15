@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/multivacplatform/multivac-wikipedia.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-wikipedia)
 
 # Build PageViews
-
 Download, clean and process **Wikipedia** hourly-generated pageviews!
 
 ## Intro
