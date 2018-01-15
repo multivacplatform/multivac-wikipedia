@@ -2,6 +2,8 @@
 Wonderful reusable codes, libraries and scripts to process Wikipedia dumps (page content, page views, etc.) by using Apache Spark (SQL, ML, and GraphX).
 
 ## build_pageviews
+[![Build Status](https://travis-ci.org/multivacplatform/multivac-wikipedia.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-wikipedia)
+
 This repo represents:
 * Download hourly pageviews for entire Wikipedia projects (daily)
 * Cleaning up and creating DataFrame
