@@ -5,7 +5,7 @@ import org.apache.spark.sql.functions.udf
 
 object UDFHelper {
 
-    // ex filename: pageviews-20180101-000000 - (not useful-year,month,day-hour)
+  // ex filename: pageviews-20180101-000000 - (not useful-year,month,day-hour)
   def extractDateFromFileName(fullPath: String, dateUnit: String):String = {
     val str = fullPath.split("/").last
     dateUnit match {
@@ -21,16 +21,16 @@ object UDFHelper {
   }
 
   def get_year_file_name: UserDefinedFunction = udf { fullPath: String =>
-  extractDateFromFileName(fullPath, "year")
+    extractDateFromFileName(fullPath, "year")
   }
   def get_month_file_name: UserDefinedFunction = udf { fullPath: String =>
-  extractDateFromFileName(fullPath, "month")
+    extractDateFromFileName(fullPath, "month")
   }
   def get_day_file_name: UserDefinedFunction  = udf { fullPath: String =>
-  extractDateFromFileName(fullPath, "day")
+    extractDateFromFileName(fullPath, "day")
   }
   def get_hour_file_name: UserDefinedFunction  = udf { fullPath: String =>
-  extractDateFromFileName(fullPath, "hour")
+    extractDateFromFileName(fullPath, "hour")
   }
 
   def get_timestamp_file_name: UserDefinedFunction  = udf { fullPath: String =>
