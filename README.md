@@ -1,4 +1,4 @@
-# multivac-wikipedia [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/multivacplatform/multivac-wikipedia/blob/master/LICENSE) [![Build Status](https://travis-ci.org/multivacplatform/multivac-wikipedia.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-wikipedia)
+# multivac-wikipedia [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/multivacplatform/multivac-wikipedia/blob/master/LICENSE) [![Build Status](https://travis-ci.org/multivacplatform/multivac-wikipedia.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-wikipedia) [![Multivac Discuss](https://img.shields.io/badge/multivac-discuss-ff69b4.svg)](https://discourse.iscpif.fr/c/multivac) [![Multivac Channel](https://img.shields.io/badge/multivac-chat-ff69b4.svg)](https://chat.iscpif.fr/channel/multivac)
 
 Wonderful reusable codes, libraries and scripts to process Wikipedia dumps (page content, page views, etc.) by using Apache Spark (SQL, ML, and GraphX).
 
