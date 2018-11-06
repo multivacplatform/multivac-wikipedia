@@ -1,4 +1,5 @@
 # multivac-wikipedia [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/multivacplatform/multivac-wikipedia/blob/master/LICENSE) [![Build Status](https://travis-ci.org/multivacplatform/multivac-wikipedia.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-wikipedia) [![Multivac Discuss](https://img.shields.io/badge/multivac-discuss-ff69b4.svg)](https://discourse.iscpif.fr/c/multivac) [![Multivac Channel](https://img.shields.io/badge/multivac-chat-ff69b4.svg)](https://chat.iscpif.fr/channel/multivac)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmultivacplatform%2Fmultivac-wikipedia.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmultivacplatform%2Fmultivac-wikipedia?ref=badge_shield)
 
 Wonderful reusable codes, libraries and scripts to process Wikipedia dumps (page content, page views, etc.) by using Apache Spark (SQL, ML, and GraphX).
 
@@ -69,3 +70,6 @@ This, and all github.com/multivacplatform projects, are under the [Multivac Plat
 ## Copyright and License
 
 Code and documentation copyright (c) 2017 [ISCPIF - CNRS](http://iscpif.fr). Code released under the [MIT license](https://github.com/multivacplatform/multivac-wikipedia/blob/master/LICENSE).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmultivacplatform%2Fmultivac-wikipedia.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmultivacplatform%2Fmultivac-wikipedia?ref=badge_large)
