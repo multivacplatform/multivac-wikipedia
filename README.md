@@ -68,4 +68,4 @@ This, and all github.com/multivacplatform projects, are under the [Multivac Plat
 
 ## Copyright and License
 
-Code and documentation copyright (c) 2017 [ISCPIF - CNRS](http://iscpif.fr). Code released under the [MIT license](https://github.com/multivacplatform/multivac-wikipedia/blob/master/LICENSE).
+Code and documentation copyright (c) 2017-2019 [ISCPIF - CNRS](http://iscpif.fr). Code released under the [MIT license](https://github.com/multivacplatform/multivac-wikipedia/blob/master/LICENSE).
