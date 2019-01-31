@@ -41,7 +41,7 @@ libraryDependencies ++= {
     "org.apache.spark" %% "spark-hive" % sparkVer % "provided" withSources(),
     "org.apache.spark" %% "spark-graphx" % sparkVer % "provided" withSources(),
     "org.apache.spark" %% "spark-yarn" % sparkVer % "provided" withSources(),
-    "com.typesafe" % "config" % "1.3.2"
+    "com.typesafe" % "config" % "1.3.3"
   )
 }
 
