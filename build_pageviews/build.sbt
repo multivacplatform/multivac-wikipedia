@@ -32,7 +32,7 @@ enablePlugins(JavaAppPackaging)
 //)
 
 libraryDependencies ++= {
-  val sparkVer = "2.2.0"
+  val sparkVer = "2.4.0"
   Seq(
     "org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources(),
     "org.apache.spark" %% "spark-sql" % sparkVer,
